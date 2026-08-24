@@ -24,6 +24,7 @@
       --border: #e3ded4;
       --green: #188052;
       --red: #c43d35;
+      --star: #f2b01e;
       --shadow: 0 18px 50px rgba(13, 41, 66, 0.10);
       --radius: 18px;
     }
@@ -581,6 +582,98 @@
     }
 
     /* =====================================================
+       RECENSIONI
+    ====================================================== */
+
+    .reviews-card {
+      display: grid;
+
+      grid-template-columns:
+        minmax(230px, 0.8fr)
+        minmax(0, 1.2fr);
+
+      gap: 35px;
+
+      align-items: center;
+
+      padding: 34px;
+
+      background: white;
+
+      border: 1px solid var(--border);
+
+      border-radius: var(--radius);
+
+      box-shadow: var(--shadow);
+    }
+
+    .rating-box {
+      text-align: center;
+
+      padding: 10px;
+    }
+
+    .rating-number {
+      color: var(--blue);
+
+      font-size: 58px;
+
+      line-height: 1;
+
+      font-weight: 900;
+
+      letter-spacing: -0.05em;
+    }
+
+    .stars {
+      margin-top: 10px;
+
+      color: var(--star);
+
+      font-size: 28px;
+
+      letter-spacing: 3px;
+
+      line-height: 1;
+    }
+
+    .rating-label {
+      margin-top: 10px;
+
+      color: var(--muted);
+
+      font-size: 14px;
+
+      font-weight: 700;
+    }
+
+    .reviews-content h3 {
+      color: var(--blue);
+
+      font-size: 24px;
+    }
+
+    .reviews-content p {
+      margin-top: 10px;
+
+      color: var(--muted);
+
+      line-height: 1.65;
+    }
+
+    .google-button {
+      margin-top: 20px;
+
+      background: var(--blue);
+
+      color: white;
+    }
+
+    .google-button:hover {
+      background: var(--blue-2);
+    }
+
+    /* =====================================================
        SERVIZI
     ====================================================== */
 
@@ -698,66 +791,6 @@
       background: var(--blue);
 
       color: white;
-    }
-
-    /* =====================================================
-       LOCATION
-    ====================================================== */
-
-    .location {
-      display: flex;
-
-      align-items: center;
-      justify-content: space-between;
-
-      gap: 25px;
-
-      padding: 34px;
-
-      color: white;
-
-      background:
-        linear-gradient(
-          135deg,
-          var(--blue),
-          var(--blue-2)
-        );
-
-      border-radius: var(--radius);
-
-      box-shadow: var(--shadow);
-    }
-
-    .location small {
-      color: var(--gold-light);
-
-      font-weight: 800;
-
-      letter-spacing: 0.1em;
-
-      text-transform: uppercase;
-    }
-
-    .location h2 {
-      margin-top: 8px;
-
-      font-size: 28px;
-    }
-
-    .location p {
-      margin-top: 8px;
-
-      color: #c8d8e2;
-
-      line-height: 1.6;
-    }
-
-    .location .button {
-      flex-shrink: 0;
-
-      background: white;
-
-      color: var(--blue);
     }
 
     /* =====================================================
@@ -905,8 +938,6 @@
         font-size: 14px;
 
         font-weight: 700;
-
-        transition: 0.15s ease;
       }
 
       .mobile-menu a:hover,
@@ -1007,6 +1038,36 @@
         font-size: 13px;
       }
 
+      /* RECENSIONI MOBILE */
+
+      .reviews-card {
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+
+        padding: 24px;
+      }
+
+      .rating-box {
+        padding: 5px;
+      }
+
+      .rating-number {
+        font-size: 54px;
+      }
+
+      .stars {
+        font-size: 25px;
+      }
+
+      .reviews-content h3 {
+        font-size: 22px;
+      }
+
+      .google-button {
+        margin-top: 18px;
+      }
+
       .service-box {
         grid-template-columns: 1fr;
 
@@ -1020,8 +1081,6 @@
         font-size: 25px;
       }
 
-      /* MAPPA MOBILE */
-
       .map-frame {
         height: 330px;
       }
@@ -1034,20 +1093,6 @@
 
       .map-button {
         margin-top: 16px;
-      }
-
-      .location {
-        display: block;
-
-        padding: 26px;
-      }
-
-      .location h2 {
-        font-size: 25px;
-      }
-
-      .location .button {
-        margin-top: 20px;
       }
 
       footer {
@@ -1077,6 +1122,16 @@
 
       .map-frame {
         height: 300px;
+      }
+
+      .rating-number {
+        font-size: 50px;
+      }
+
+      .stars {
+        font-size: 22px;
+
+        letter-spacing: 2px;
       }
     }
 
@@ -1109,13 +1164,11 @@
     <nav class="navbar">
 
       <div class="brand">
-
         TABACCHERIA BAR SPORT ZHOU
 
         <span>
           LECCO
         </span>
-
       </div>
 
 
@@ -1129,6 +1182,10 @@
 
         <a href="#orari">
           Orari
+        </a>
+
+        <a href="#recensioni">
+          Recensioni
         </a>
 
         <a href="#servizi">
@@ -1174,6 +1231,10 @@
 
       <a href="#orari">
         🕐 Orari
+      </a>
+
+      <a href="#recensioni">
+        ⭐ Recensioni
       </a>
 
       <a href="#servizi">
@@ -1285,24 +1346,19 @@
       </article>
 
 
-      <article
-        id="servizi"
-        class="info-card"
-      >
+      <article class="info-card">
 
         <div class="info-icon">
-          🎟️
+          ⭐
         </div>
 
         <h2>
-          Servizi
+          Recensioni
         </h2>
 
         <p>
-          Il punto vendita è associato a servizi
-          Sisal e a lotterie come SuperEnalotto,
-          Eurojackpot, VinciCasa, Win for Life
-          e SiVinceTutto.
+          Valutazione Google:
+          <strong>4,1 / 5</strong>
         </p>
 
       </article>
@@ -1334,8 +1390,6 @@
           l'attività.
         </p>
 
-
-        <!-- STATO AUTOMATICO -->
 
         <div
           id="openingStatus"
@@ -1404,10 +1458,90 @@
 
 
     <!-- ===================================================
+         RECENSIONI
+    ==================================================== -->
+
+    <section
+      id="recensioni"
+      class="section"
+    >
+
+      <div class="section-heading">
+
+        <small>
+          Cosa dicono i clienti
+        </small>
+
+        <h2>
+          Recensioni
+        </h2>
+
+      </div>
+
+
+      <div class="reviews-card">
+
+
+        <!-- VALUTAZIONE -->
+
+        <div class="rating-box">
+
+          <div class="rating-number">
+            4,1
+          </div>
+
+          <div
+            class="stars"
+            aria-label="4,1 stelle su 5"
+          >
+            ★★★★☆
+          </div>
+
+          <div class="rating-label">
+            Valutazione su Google
+          </div>
+
+        </div>
+
+
+        <!-- TESTO -->
+
+        <div class="reviews-content">
+
+          <h3>
+            Un posto apprezzato dai clienti
+          </h3>
+
+          <p>
+            Scopri le recensioni e le opinioni
+            pubblicate dai clienti su Google.
+          </p>
+
+
+          <a
+            class="button google-button"
+            target="_blank"
+            rel="noopener"
+            href="https://www.google.com/maps/search/?api=1&query=Tabaccheria+Bar+Sport+Zhou,+Corso+Martiri+della+Liberazione+157,+Lecco"
+          >
+            ⭐ Leggi le recensioni su Google
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
          SERVIZI
     ==================================================== -->
 
-    <section class="section">
+    <section
+      id="servizi"
+      class="section"
+    >
 
       <div class="section-heading">
 
@@ -1450,7 +1584,7 @@
 
 
     <!-- ===================================================
-         MAPPA INTERATTIVA
+         MAPPA
     ==================================================== -->
 
     <section
@@ -1477,12 +1611,6 @@
 
 
       <div class="map-card">
-
-        <!--
-          Mappa incorporata.
-          La ricerca è impostata direttamente
-          sull'attività e sull'indirizzo.
-        -->
 
         <iframe
           class="map-frame"
@@ -1524,7 +1652,6 @@
       </div>
 
     </section>
-
 
   </main>
 
@@ -1589,11 +1716,6 @@
     );
 
 
-    /*
-      Chiude il menu dopo aver
-      selezionato una sezione.
-    */
-
     const mobileLinks =
       mobileMenu.querySelectorAll("a");
 
@@ -1620,10 +1742,6 @@
       }
     );
 
-
-    /*
-      Chiude il menu cliccando fuori.
-    */
 
     document.addEventListener(
       "click",
@@ -1663,16 +1781,6 @@
         now.getHours() * 60 +
         now.getMinutes();
 
-
-      /*
-        0 = Domenica
-        1 = Lunedì
-        2 = Martedì
-        3 = Mercoledì
-        4 = Giovedì
-        5 = Venerdì
-        6 = Sabato
-      */
 
       const openingHours = {
 
@@ -1784,17 +1892,8 @@
     }
 
 
-    /*
-      Controllo iniziale.
-    */
-
     updateOpeningStatus();
 
-
-    /*
-      Aggiornamento automatico
-      ogni minuto.
-    */
 
     setInterval(
       updateOpeningStatus,
