@@ -62,16 +62,19 @@
       -webkit-tap-highlight-color: transparent;
     }
 
-    /* =========================
+    /* =====================================================
        HERO
-    ========================= */
+    ====================================================== */
 
     .hero {
       position: relative;
       min-height: 650px;
+
       display: flex;
       flex-direction: column;
+
       color: white;
+
       background:
         radial-gradient(
           circle at 85% 20%,
@@ -83,41 +86,54 @@
           var(--blue),
           var(--blue-2)
         );
+
       overflow: hidden;
     }
 
     .hero::before {
       content: "";
+
       position: absolute;
+
       width: 500px;
       height: 500px;
+
       right: -230px;
       bottom: -260px;
+
       border-radius: 50%;
+
       border: 1px solid rgba(255,255,255,0.08);
     }
 
     .hero::after {
       content: "";
+
       position: absolute;
+
       width: 350px;
       height: 350px;
+
       left: -220px;
       top: 280px;
+
       border-radius: 50%;
+
       border: 1px solid rgba(255,255,255,0.05);
     }
 
-    /* =========================
+    /* =====================================================
        NAVBAR
-    ========================= */
+    ====================================================== */
 
     .navbar {
       position: relative;
       z-index: 50;
 
       width: min(1180px, calc(100% - 40px));
+
       margin: 0 auto;
+
       padding: 26px 0;
 
       display: flex;
@@ -136,10 +152,14 @@
 
     .brand span {
       display: block;
+
       margin-top: 4px;
+
       color: var(--gold-light);
+
       font-size: 11px;
       font-weight: 600;
+
       letter-spacing: 0.14em;
     }
 
@@ -150,9 +170,12 @@
 
     .nav-links a {
       color: #e7eef3;
+
       text-decoration: none;
+
       font-size: 14px;
       font-weight: 600;
+
       transition: 0.2s ease;
     }
 
@@ -160,9 +183,9 @@
       color: var(--gold-light);
     }
 
-    /* =========================
+    /* =====================================================
        HAMBURGER
-    ========================= */
+    ====================================================== */
 
     .menu-button {
       display: none;
@@ -215,15 +238,16 @@
       display: none;
     }
 
-    /* =========================
+    /* =====================================================
        HERO CONTENT
-    ========================= */
+    ====================================================== */
 
     .hero-content {
       position: relative;
       z-index: 2;
 
       width: min(1180px, calc(100% - 40px));
+
       margin: auto;
 
       padding: 80px 0 110px;
@@ -273,8 +297,11 @@
 
     .hero-actions {
       display: flex;
+
       flex-wrap: wrap;
+
       gap: 12px;
+
       margin-top: 32px;
     }
 
@@ -308,6 +335,7 @@
 
     .button-primary {
       background: var(--gold);
+
       color: #18212a;
 
       box-shadow:
@@ -316,7 +344,9 @@
 
     .button-secondary {
       border: 1px solid rgba(255,255,255,0.28);
+
       color: white;
+
       background: rgba(255,255,255,0.05);
     }
 
@@ -324,9 +354,9 @@
       background: rgba(255,255,255,0.10);
     }
 
-    /* =========================
+    /* =====================================================
        MAIN
-    ========================= */
+    ====================================================== */
 
     .container {
       width: min(1180px, calc(100% - 40px));
@@ -337,9 +367,9 @@
       z-index: 4;
     }
 
-    /* =========================
+    /* =====================================================
        INFO CARDS
-    ========================= */
+    ====================================================== */
 
     .info-grid {
       display: grid;
@@ -397,13 +427,15 @@
 
     .info-card a {
       color: var(--blue);
+
       font-weight: 800;
+
       text-decoration: none;
     }
 
-    /* =========================
+    /* =====================================================
        SECTIONS
-    ========================= */
+    ====================================================== */
 
     .section {
       padding-top: 75px;
@@ -447,9 +479,9 @@
       line-height: 1.65;
     }
 
-    /* =========================
+    /* =====================================================
        APERTO / CHIUSO
-    ========================= */
+    ====================================================== */
 
     .opening-status {
       display: inline-flex;
@@ -489,6 +521,7 @@
 
     .opening-status.closed {
       background: #fbeeed;
+
       color: var(--red);
     }
 
@@ -499,9 +532,9 @@
         0 0 0 4px rgba(217,75,66,0.12);
     }
 
-    /* =========================
+    /* =====================================================
        ORARI
-    ========================= */
+    ====================================================== */
 
     .hours-card {
       overflow: hidden;
@@ -517,6 +550,7 @@
 
     .hours-table {
       width: 100%;
+
       border-collapse: collapse;
     }
 
@@ -530,6 +564,7 @@
 
     .hours-table td {
       padding: 18px 22px;
+
       font-size: 15px;
     }
 
@@ -539,13 +574,15 @@
 
     .hours-table td:last-child {
       text-align: right;
+
       color: var(--blue);
+
       font-weight: 850;
     }
 
-    /* =========================
+    /* =====================================================
        SERVIZI
-    ========================= */
+    ====================================================== */
 
     .service-box {
       display: grid;
@@ -584,6 +621,7 @@
 
     .service-box h3 {
       color: var(--blue);
+
       font-size: 21px;
     }
 
@@ -595,9 +633,76 @@
       line-height: 1.65;
     }
 
-    /* =========================
+    /* =====================================================
+       MAPPA
+    ====================================================== */
+
+    .map-card {
+      overflow: hidden;
+
+      background: white;
+
+      border: 1px solid var(--border);
+
+      border-radius: var(--radius);
+
+      box-shadow: var(--shadow);
+    }
+
+    .map-frame {
+      width: 100%;
+
+      height: 430px;
+
+      border: 0;
+
+      display: block;
+    }
+
+    .map-footer {
+      padding: 22px;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 20px;
+    }
+
+    .map-address {
+      min-width: 0;
+    }
+
+    .map-address strong {
+      display: block;
+
+      color: var(--blue);
+
+      font-size: 17px;
+    }
+
+    .map-address span {
+      display: block;
+
+      margin-top: 5px;
+
+      color: var(--muted);
+
+      font-size: 14px;
+    }
+
+    .map-button {
+      flex-shrink: 0;
+
+      background: var(--blue);
+
+      color: white;
+    }
+
+    /* =====================================================
        LOCATION
-    ========================= */
+    ====================================================== */
 
     .location {
       display: flex;
@@ -651,12 +756,13 @@
       flex-shrink: 0;
 
       background: white;
+
       color: var(--blue);
     }
 
-    /* =========================
+    /* =====================================================
        FOOTER
-    ========================= */
+    ====================================================== */
 
     footer {
       margin-top: 90px;
@@ -680,12 +786,13 @@
 
     footer a {
       color: white;
+
       text-decoration: none;
     }
 
-    /* =========================
+    /* =====================================================
        TABLET
-    ========================= */
+    ====================================================== */
 
     @media (max-width: 900px) {
 
@@ -709,21 +816,27 @@
       .nav-links {
         gap: 15px;
       }
+
+      .map-frame {
+        height: 380px;
+      }
     }
 
-    /* =========================
+    /* =====================================================
        MOBILE
-    ========================= */
+    ====================================================== */
 
     @media (max-width: 650px) {
 
       .hero {
         min-height: auto;
+
         padding-bottom: 55px;
       }
 
       .navbar {
         width: calc(100% - 32px);
+
         padding: 20px 0;
       }
 
@@ -790,6 +903,7 @@
         border-radius: 9px;
 
         font-size: 14px;
+
         font-weight: 700;
 
         transition: 0.15s ease;
@@ -810,6 +924,7 @@
 
       .eyebrow {
         font-size: 9px;
+
         padding: 7px 10px;
       }
 
@@ -858,6 +973,7 @@
 
       .info-grid {
         grid-template-columns: 1fr;
+
         gap: 11px;
       }
 
@@ -879,6 +995,7 @@
 
       .hours-table td {
         padding: 16px 15px;
+
         font-size: 14px;
       }
 
@@ -892,17 +1009,36 @@
 
       .service-box {
         grid-template-columns: 1fr;
+
         padding: 23px;
       }
 
       .service-icon {
         width: 56px;
         height: 56px;
+
         font-size: 25px;
+      }
+
+      /* MAPPA MOBILE */
+
+      .map-frame {
+        height: 330px;
+      }
+
+      .map-footer {
+        display: block;
+
+        padding: 20px;
+      }
+
+      .map-button {
+        margin-top: 16px;
       }
 
       .location {
         display: block;
+
         padding: 26px;
       }
 
@@ -919,9 +1055,9 @@
       }
     }
 
-    /* =========================
+    /* =====================================================
        VERY SMALL PHONES
-    ========================= */
+    ====================================================== */
 
     @media (max-width: 360px) {
 
@@ -931,17 +1067,22 @@
 
       .hours-table td {
         padding: 14px 11px;
+
         font-size: 13px;
       }
 
       .info-card {
         padding: 18px;
       }
+
+      .map-frame {
+        height: 300px;
+      }
     }
 
-    /* =========================
+    /* =====================================================
        ACCESSIBILITY
-    ========================= */
+    ====================================================== */
 
     @media (prefers-reduced-motion: reduce) {
 
@@ -1309,7 +1450,7 @@
 
 
     <!-- ===================================================
-         DOVE SIAMO
+         MAPPA INTERATTIVA
     ==================================================== -->
 
     <section
@@ -1317,37 +1458,73 @@
       class="section"
     >
 
-      <div class="location">
+      <div class="section-heading">
 
-        <div>
+        <small>
+          Dove trovarci
+        </small>
 
-          <small>
-            Dove trovarci
-          </small>
+        <h2>
+          Vieni a trovarci
+        </h2>
 
-          <h2>
-            Corso Martiri della Liberazione 157
-          </h2>
+        <p>
+          Consulta la mappa per individuare
+          rapidamente l'attività.
+        </p>
 
-          <p>
-            23900 Lecco (LC)
-          </p>
+      </div>
+
+
+      <div class="map-card">
+
+        <!--
+          Mappa incorporata.
+          La ricerca è impostata direttamente
+          sull'attività e sull'indirizzo.
+        -->
+
+        <iframe
+          class="map-frame"
+          title="Mappa Tabaccheria Bar Sport Zhou, Lecco"
+          src="https://www.google.com/maps?q=Tabaccheria%20Bar%20Sport%20Zhou%2C%20Corso%20Martiri%20della%20Liberazione%20157%2C%20Lecco&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen
+        ></iframe>
+
+
+        <div class="map-footer">
+
+          <div class="map-address">
+
+            <strong>
+              Tabaccheria Bar Sport Zhou
+            </strong>
+
+            <span>
+              Corso Martiri della Liberazione 157,
+              23900 Lecco (LC)
+            </span>
+
+          </div>
+
+
+          <a
+            class="button map-button"
+            target="_blank"
+            rel="noopener"
+            href="https://www.google.com/maps/search/?api=1&query=Tabaccheria+Bar+Sport+Zhou,+Corso+Martiri+della+Liberazione+157,+Lecco"
+          >
+            📍 Apri Google Maps
+          </a>
 
         </div>
-
-
-        <a
-          class="button"
-          target="_blank"
-          rel="noopener"
-          href="https://www.google.com/maps/search/?api=1&query=Tabaccheria+Bar+Sport+Zhou,+Corso+Martiri+della+Liberazione+157,+Lecco"
-        >
-          📍 Indicazioni stradali
-        </a>
 
       </div>
 
     </section>
+
 
   </main>
 
@@ -1488,8 +1665,6 @@
 
 
       /*
-        Giorni:
-
         0 = Domenica
         1 = Lunedì
         2 = Martedì
