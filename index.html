@@ -22,6 +22,8 @@
       --text: #17212b;
       --muted: #687580;
       --border: #e3ded4;
+      --green: #188052;
+      --red: #c43d35;
       --shadow: 0 18px 50px rgba(13, 41, 66, 0.10);
       --radius: 18px;
     }
@@ -112,7 +114,7 @@
 
     .navbar {
       position: relative;
-      z-index: 10;
+      z-index: 50;
 
       width: min(1180px, calc(100% - 40px));
       margin: 0 auto;
@@ -446,6 +448,58 @@
     }
 
     /* =========================
+       APERTO / CHIUSO
+    ========================= */
+
+    .opening-status {
+      display: inline-flex;
+
+      align-items: center;
+
+      gap: 9px;
+
+      margin-top: 15px;
+
+      padding: 10px 14px;
+
+      border-radius: 999px;
+
+      background: #eaf7f0;
+
+      color: var(--green);
+
+      font-size: 14px;
+
+      font-weight: 800;
+    }
+
+    .status-dot {
+      width: 9px;
+      height: 9px;
+
+      flex: 0 0 auto;
+
+      border-radius: 50%;
+
+      background: #20a364;
+
+      box-shadow:
+        0 0 0 4px rgba(32,163,100,0.12);
+    }
+
+    .opening-status.closed {
+      background: #fbeeed;
+      color: var(--red);
+    }
+
+    .opening-status.closed .status-dot {
+      background: #d94b42;
+
+      box-shadow:
+        0 0 0 4px rgba(217,75,66,0.12);
+    }
+
+    /* =========================
        ORARI
     ========================= */
 
@@ -655,7 +709,6 @@
       .nav-links {
         gap: 15px;
       }
-
     }
 
     /* =========================
@@ -682,21 +735,18 @@
         font-size: 9px;
       }
 
-      /* Nascondiamo i link desktop */
       .nav-links {
         display: none;
       }
 
-      /* Mostriamo hamburger */
       .menu-button {
         display: flex;
       }
 
-      /* Menu mobile */
       .mobile-menu {
         position: absolute;
 
-        z-index: 30;
+        z-index: 40;
 
         top: 78px;
         right: 16px;
@@ -836,6 +886,10 @@
         white-space: nowrap;
       }
 
+      .opening-status {
+        font-size: 13px;
+      }
+
       .service-box {
         grid-template-columns: 1fr;
         padding: 23px;
@@ -883,7 +937,6 @@
       .info-card {
         padding: 18px;
       }
-
     }
 
     /* =========================
@@ -899,7 +952,6 @@
       * {
         transition: none !important;
       }
-
     }
 
   </style>
@@ -1117,7 +1169,9 @@
     </section>
 
 
-    <!-- ORARI -->
+    <!-- ===================================================
+         ORARI
+    ==================================================== -->
 
     <section
       id="orari"
@@ -1138,6 +1192,22 @@
           Gli orari pubblicati online per
           l'attività.
         </p>
+
+
+        <!-- STATO AUTOMATICO -->
+
+        <div
+          id="openingStatus"
+          class="opening-status"
+        >
+
+          <span class="status-dot"></span>
+
+          <span id="statusText">
+            Controllo orari...
+          </span>
+
+        </div>
 
       </div>
 
@@ -1192,7 +1262,9 @@
     </section>
 
 
-    <!-- SERVIZI -->
+    <!-- ===================================================
+         SERVIZI
+    ==================================================== -->
 
     <section class="section">
 
@@ -1236,7 +1308,9 @@
     </section>
 
 
-    <!-- DOVE SIAMO -->
+    <!-- ===================================================
+         DOVE SIAMO
+    ==================================================== -->
 
     <section
       id="contatti"
@@ -1301,10 +1375,14 @@
 
 
   <!-- =====================================================
-       JAVASCRIPT MENU
+       JAVASCRIPT
   ====================================================== -->
 
   <script>
+
+    /* =====================================================
+       MENU MOBILE
+    ====================================================== */
 
     const menuButton =
       document.getElementById("menuButton");
@@ -1312,10 +1390,6 @@
     const mobileMenu =
       document.getElementById("mobileMenu");
 
-
-    /*
-      Apertura / chiusura menu
-    */
 
     menuButton.addEventListener(
       "click",
@@ -1339,12 +1413,13 @@
 
 
     /*
-      Quando clicchi una voce,
-      il menu si chiude.
+      Chiude il menu dopo aver
+      selezionato una sezione.
     */
 
     const mobileLinks =
       mobileMenu.querySelectorAll("a");
+
 
     mobileLinks.forEach(
       function (link) {
@@ -1370,8 +1445,7 @@
 
 
     /*
-      Se clicchi fuori dal menu,
-      il menu si chiude.
+      Chiude il menu cliccando fuori.
     */
 
     document.addEventListener(
@@ -1395,6 +1469,161 @@
         }
 
       }
+    );
+
+
+    /* =====================================================
+       APERTO / CHIUSO
+    ====================================================== */
+
+    function updateOpeningStatus() {
+
+      const now = new Date();
+
+      const day = now.getDay();
+
+      const currentMinutes =
+        now.getHours() * 60 +
+        now.getMinutes();
+
+
+      /*
+        Giorni:
+
+        0 = Domenica
+        1 = Lunedì
+        2 = Martedì
+        3 = Mercoledì
+        4 = Giovedì
+        5 = Venerdì
+        6 = Sabato
+      */
+
+      const openingHours = {
+
+        0: {
+          open: 6 * 60 + 30,
+          close: 21 * 60
+        },
+
+        1: {
+          open: 6 * 60,
+          close: 21 * 60
+        },
+
+        2: {
+          open: 6 * 60,
+          close: 21 * 60
+        },
+
+        3: {
+          open: 6 * 60,
+          close: 21 * 60
+        },
+
+        4: {
+          open: 6 * 60,
+          close: 21 * 60
+        },
+
+        5: {
+          open: 6 * 60,
+          close: 21 * 60
+        },
+
+        6: {
+          open: 6 * 60,
+          close: 21 * 60
+        }
+
+      };
+
+
+      const today =
+        openingHours[day];
+
+
+      const status =
+        document.getElementById(
+          "openingStatus"
+        );
+
+
+      const text =
+        document.getElementById(
+          "statusText"
+        );
+
+
+      if (!today) {
+
+        status.classList.add("closed");
+
+        text.textContent =
+          "Chiuso oggi";
+
+        return;
+
+      }
+
+
+      const isOpen =
+        currentMinutes >= today.open &&
+        currentMinutes < today.close;
+
+
+      if (isOpen) {
+
+        status.classList.remove("closed");
+
+
+        const closingHour =
+          Math.floor(
+            today.close / 60
+          );
+
+
+        const closingMinute =
+          today.close % 60;
+
+
+        const closingTime =
+          String(closingHour).padStart(2, "0") +
+          ":" +
+          String(closingMinute).padStart(2, "0");
+
+
+        text.textContent =
+          "Aperto ora · chiude alle " +
+          closingTime;
+
+      } else {
+
+        status.classList.add("closed");
+
+        text.textContent =
+          "Chiuso ora";
+
+      }
+
+    }
+
+
+    /*
+      Controllo iniziale.
+    */
+
+    updateOpeningStatus();
+
+
+    /*
+      Aggiornamento automatico
+      ogni minuto.
+    */
+
+    setInterval(
+      updateOpeningStatus,
+      60000
     );
 
   </script>
