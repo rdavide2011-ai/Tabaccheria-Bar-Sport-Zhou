@@ -2,11 +2,7 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
-  >
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
   <title>Tabaccheria Bar Sport Zhou | Lecco</title>
 
@@ -16,10 +12,19 @@
   >
 
   <style>
-
-    /* =========================================================
-       RESET
-    ========================================================= */
+    :root {
+      --blue: #0d2942;
+      --blue-2: #17476b;
+      --gold: #d7a84b;
+      --gold-light: #f0cf83;
+      --cream: #f5f2eb;
+      --white: #ffffff;
+      --text: #17212b;
+      --muted: #687580;
+      --border: #e3ded4;
+      --shadow: 0 18px 50px rgba(13, 41, 66, 0.10);
+      --radius: 18px;
+    }
 
     * {
       margin: 0;
@@ -33,7 +38,6 @@
 
     body {
       min-height: 100vh;
-
       font-family:
         Inter,
         -apple-system,
@@ -42,16 +46,9 @@
         Roboto,
         Arial,
         sans-serif;
-
-      background: #f5f2eb;
-      color: #17212b;
-
+      background: var(--cream);
+      color: var(--text);
       overflow-x: hidden;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
     }
 
     a {
@@ -63,48 +60,16 @@
       -webkit-tap-highlight-color: transparent;
     }
 
-
-    /* =========================================================
-       VARIABILI
-    ========================================================= */
-
-    :root {
-      --blue: #0d2942;
-      --blue-2: #173f61;
-      --blue-3: #245d86;
-
-      --gold: #d7a84b;
-      --gold-light: #f0cf83;
-
-      --cream: #f5f2eb;
-      --white: #ffffff;
-
-      --text: #17212b;
-      --muted: #687580;
-
-      --border: #e3ded4;
-
-      --shadow:
-        0 18px 50px rgba(13, 41, 66, 0.10);
-
-      --radius: 18px;
-    }
-
-
-    /* =========================================================
-       HEADER
-    ========================================================= */
+    /* =========================
+       HERO
+    ========================= */
 
     .hero {
       position: relative;
-
       min-height: 650px;
-
       display: flex;
       flex-direction: column;
-
       color: white;
-
       background:
         radial-gradient(
           circle at 85% 20%,
@@ -116,55 +81,41 @@
           var(--blue),
           var(--blue-2)
         );
-
       overflow: hidden;
     }
 
     .hero::before {
       content: "";
-
       position: absolute;
-
       width: 500px;
       height: 500px;
-
       right: -230px;
       bottom: -260px;
-
       border-radius: 50%;
-
       border: 1px solid rgba(255,255,255,0.08);
     }
 
     .hero::after {
       content: "";
-
       position: absolute;
-
       width: 350px;
       height: 350px;
-
       left: -220px;
       top: 280px;
-
       border-radius: 50%;
-
       border: 1px solid rgba(255,255,255,0.05);
     }
 
-
-    /* =========================================================
+    /* =========================
        NAVBAR
-    ========================================================= */
+    ========================= */
 
     .navbar {
       position: relative;
-      z-index: 5;
+      z-index: 10;
 
       width: min(1180px, calc(100% - 40px));
-
       margin: 0 auto;
-
       padding: 26px 0;
 
       display: flex;
@@ -177,22 +128,16 @@
     .brand {
       font-size: 15px;
       font-weight: 850;
-
       letter-spacing: 0.06em;
-
       line-height: 1.2;
     }
 
     .brand span {
       display: block;
-
       margin-top: 4px;
-
       color: var(--gold-light);
-
       font-size: 11px;
       font-weight: 600;
-
       letter-spacing: 0.14em;
     }
 
@@ -203,12 +148,9 @@
 
     .nav-links a {
       color: #e7eef3;
-
       text-decoration: none;
-
       font-size: 14px;
       font-weight: 600;
-
       transition: 0.2s ease;
     }
 
@@ -216,17 +158,70 @@
       color: var(--gold-light);
     }
 
+    /* =========================
+       HAMBURGER
+    ========================= */
 
-    /* =========================================================
+    .menu-button {
+      display: none;
+
+      width: 46px;
+      height: 46px;
+
+      padding: 0;
+
+      border: 1px solid rgba(255,255,255,0.22);
+      border-radius: 11px;
+
+      background: rgba(255,255,255,0.06);
+
+      cursor: pointer;
+
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      gap: 5px;
+    }
+
+    .menu-button span {
+      display: block;
+
+      width: 20px;
+      height: 2px;
+
+      border-radius: 10px;
+
+      background: white;
+
+      transition: 0.2s ease;
+    }
+
+    .menu-button.open span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .menu-button.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-button.open span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    .mobile-menu {
+      display: none;
+    }
+
+    /* =========================
        HERO CONTENT
-    ========================================================= */
+    ========================= */
 
     .hero-content {
       position: relative;
       z-index: 2;
 
       width: min(1180px, calc(100% - 40px));
-
       margin: auto;
 
       padding: 80px 0 110px;
@@ -276,11 +271,8 @@
 
     .hero-actions {
       display: flex;
-
       flex-wrap: wrap;
-
       gap: 12px;
-
       margin-top: 32px;
     }
 
@@ -314,7 +306,6 @@
 
     .button-primary {
       background: var(--gold);
-
       color: #18212a;
 
       box-shadow:
@@ -323,9 +314,7 @@
 
     .button-secondary {
       border: 1px solid rgba(255,255,255,0.28);
-
       color: white;
-
       background: rgba(255,255,255,0.05);
     }
 
@@ -333,10 +322,9 @@
       background: rgba(255,255,255,0.10);
     }
 
-
-    /* =========================================================
+    /* =========================
        MAIN
-    ========================================================= */
+    ========================= */
 
     .container {
       width: min(1180px, calc(100% - 40px));
@@ -347,10 +335,9 @@
       z-index: 4;
     }
 
-
-    /* =========================================================
+    /* =========================
        INFO CARDS
-    ========================================================= */
+    ========================= */
 
     .info-grid {
       display: grid;
@@ -408,16 +395,13 @@
 
     .info-card a {
       color: var(--blue);
-
       font-weight: 800;
-
       text-decoration: none;
     }
 
-
-    /* =========================================================
+    /* =========================
        SECTIONS
-    ========================================================= */
+    ========================= */
 
     .section {
       padding-top: 75px;
@@ -461,10 +445,9 @@
       line-height: 1.65;
     }
 
-
-    /* =========================================================
+    /* =========================
        ORARI
-    ========================================================= */
+    ========================= */
 
     .hours-card {
       overflow: hidden;
@@ -480,7 +463,6 @@
 
     .hours-table {
       width: 100%;
-
       border-collapse: collapse;
     }
 
@@ -494,7 +476,6 @@
 
     .hours-table td {
       padding: 18px 22px;
-
       font-size: 15px;
     }
 
@@ -504,16 +485,13 @@
 
     .hours-table td:last-child {
       text-align: right;
-
       color: var(--blue);
-
       font-weight: 850;
     }
 
-
-    /* =========================================================
+    /* =========================
        SERVIZI
-    ========================================================= */
+    ========================= */
 
     .service-box {
       display: grid;
@@ -552,7 +530,6 @@
 
     .service-box h3 {
       color: var(--blue);
-
       font-size: 21px;
     }
 
@@ -564,10 +541,9 @@
       line-height: 1.65;
     }
 
-
-    /* =========================================================
+    /* =========================
        LOCATION
-    ========================================================= */
+    ========================= */
 
     .location {
       display: flex;
@@ -621,23 +597,17 @@
       flex-shrink: 0;
 
       background: white;
-
       color: var(--blue);
     }
 
-
-    /* =========================================================
+    /* =========================
        FOOTER
-    ========================================================= */
+    ========================= */
 
     footer {
       margin-top: 90px;
 
-      padding:
-        35px
-        max(20px, env(safe-area-inset-right))
-        35px
-        max(20px, env(safe-area-inset-left));
+      padding: 35px 20px;
 
       background: var(--blue);
 
@@ -654,10 +624,14 @@
       color: white;
     }
 
+    footer a {
+      color: white;
+      text-decoration: none;
+    }
 
-    /* =========================================================
+    /* =========================
        TABLET
-    ========================================================= */
+    ========================= */
 
     @media (max-width: 900px) {
 
@@ -684,26 +658,19 @@
 
     }
 
-
-    /* =========================================================
+    /* =========================
        MOBILE
-    ========================================================= */
+    ========================= */
 
     @media (max-width: 650px) {
 
-      body {
-        font-size: 15px;
-      }
-
       .hero {
         min-height: auto;
-
         padding-bottom: 55px;
       }
 
       .navbar {
         width: calc(100% - 32px);
-
         padding: 20px 0;
       }
 
@@ -715,8 +682,72 @@
         font-size: 9px;
       }
 
+      /* Nascondiamo i link desktop */
       .nav-links {
         display: none;
+      }
+
+      /* Mostriamo hamburger */
+      .menu-button {
+        display: flex;
+      }
+
+      /* Menu mobile */
+      .mobile-menu {
+        position: absolute;
+
+        z-index: 30;
+
+        top: 78px;
+        right: 16px;
+
+        width: min(
+          245px,
+          calc(100vw - 32px)
+        );
+
+        display: none;
+
+        flex-direction: column;
+
+        padding: 8px;
+
+        background: rgba(13, 41, 66, 0.98);
+
+        border:
+          1px solid
+          rgba(255,255,255,0.12);
+
+        border-radius: 14px;
+
+        box-shadow:
+          0 20px 50px rgba(0,0,0,0.28);
+
+        backdrop-filter: blur(15px);
+      }
+
+      .mobile-menu.open {
+        display: flex;
+      }
+
+      .mobile-menu a {
+        padding: 14px;
+
+        color: white;
+
+        text-decoration: none;
+
+        border-radius: 9px;
+
+        font-size: 14px;
+        font-weight: 700;
+
+        transition: 0.15s ease;
+      }
+
+      .mobile-menu a:hover,
+      .mobile-menu a:active {
+        background: rgba(255,255,255,0.09);
       }
 
       .hero-content {
@@ -729,14 +760,14 @@
 
       .eyebrow {
         font-size: 9px;
-
         padding: 7px 10px;
       }
 
       .hero h1 {
         margin-top: 17px;
 
-        font-size: clamp(39px, 13vw, 58px);
+        font-size:
+          clamp(39px, 13vw, 58px);
 
         line-height: 0.97;
       }
@@ -777,7 +808,6 @@
 
       .info-grid {
         grid-template-columns: 1fr;
-
         gap: 11px;
       }
 
@@ -799,7 +829,6 @@
 
       .hours-table td {
         padding: 16px 15px;
-
         font-size: 14px;
       }
 
@@ -809,20 +838,17 @@
 
       .service-box {
         grid-template-columns: 1fr;
-
         padding: 23px;
       }
 
       .service-icon {
         width: 56px;
         height: 56px;
-
         font-size: 25px;
       }
 
       .location {
         display: block;
-
         padding: 26px;
       }
 
@@ -837,13 +863,11 @@
       footer {
         margin-top: 60px;
       }
-
     }
 
-
-    /* =========================================================
+    /* =========================
        VERY SMALL PHONES
-    ========================================================= */
+    ========================= */
 
     @media (max-width: 360px) {
 
@@ -853,7 +877,6 @@
 
       .hours-table td {
         padding: 14px 11px;
-
         font-size: 13px;
       }
 
@@ -863,10 +886,9 @@
 
     }
 
-
-    /* =========================================================
+    /* =========================
        ACCESSIBILITY
-    ========================================================= */
+    ========================= */
 
     @media (prefers-reduced-motion: reduce) {
 
@@ -883,26 +905,28 @@
   </style>
 </head>
 
-
 <body>
 
-
-  <!-- =======================================================
-       HERO
-  ======================================================== -->
+  <!-- =====================================================
+       HEADER
+  ====================================================== -->
 
   <header class="hero">
 
     <nav class="navbar">
 
       <div class="brand">
+
         TABACCHERIA BAR SPORT ZHOU
 
         <span>
           LECCO
         </span>
+
       </div>
 
+
+      <!-- MENU DESKTOP -->
 
       <div class="nav-links">
 
@@ -924,8 +948,53 @@
 
       </div>
 
+
+      <!-- HAMBURGER MOBILE -->
+
+      <button
+        class="menu-button"
+        id="menuButton"
+        type="button"
+        aria-label="Apri menu"
+        aria-expanded="false"
+      >
+
+        <span></span>
+        <span></span>
+        <span></span>
+
+      </button>
+
     </nav>
 
+
+    <!-- MENU MOBILE -->
+
+    <div
+      class="mobile-menu"
+      id="mobileMenu"
+    >
+
+      <a href="#info">
+        📍 Info
+      </a>
+
+      <a href="#orari">
+        🕐 Orari
+      </a>
+
+      <a href="#servizi">
+        🎟️ Servizi
+      </a>
+
+      <a href="#contatti">
+        🗺️ Dove siamo
+      </a>
+
+    </div>
+
+
+    <!-- HERO -->
 
     <div class="hero-content">
 
@@ -972,10 +1041,9 @@
   </header>
 
 
-
-  <!-- =======================================================
+  <!-- =====================================================
        MAIN
-  ======================================================== -->
+  ====================================================== -->
 
   <main class="container">
 
@@ -986,7 +1054,6 @@
       id="info"
       class="info-grid"
     >
-
 
       <article class="info-card">
 
@@ -1047,9 +1114,7 @@
 
       </article>
 
-
     </section>
-
 
 
     <!-- ORARI -->
@@ -1127,7 +1192,6 @@
     </section>
 
 
-
     <!-- SERVIZI -->
 
     <section class="section">
@@ -1172,8 +1236,7 @@
     </section>
 
 
-
-    <!-- LOCATION -->
+    <!-- DOVE SIAMO -->
 
     <section
       id="contatti"
@@ -1212,14 +1275,12 @@
 
     </section>
 
-
   </main>
 
 
-
-  <!-- =======================================================
+  <!-- =====================================================
        FOOTER
-  ======================================================== -->
+  ====================================================== -->
 
   <footer>
 
@@ -1238,6 +1299,105 @@
 
   </footer>
 
+
+  <!-- =====================================================
+       JAVASCRIPT MENU
+  ====================================================== -->
+
+  <script>
+
+    const menuButton =
+      document.getElementById("menuButton");
+
+    const mobileMenu =
+      document.getElementById("mobileMenu");
+
+
+    /*
+      Apertura / chiusura menu
+    */
+
+    menuButton.addEventListener(
+      "click",
+      function () {
+
+        const isOpen =
+          mobileMenu.classList.toggle("open");
+
+        menuButton.classList.toggle(
+          "open",
+          isOpen
+        );
+
+        menuButton.setAttribute(
+          "aria-expanded",
+          String(isOpen)
+        );
+
+      }
+    );
+
+
+    /*
+      Quando clicchi una voce,
+      il menu si chiude.
+    */
+
+    const mobileLinks =
+      mobileMenu.querySelectorAll("a");
+
+    mobileLinks.forEach(
+      function (link) {
+
+        link.addEventListener(
+          "click",
+          function () {
+
+            mobileMenu.classList.remove("open");
+
+            menuButton.classList.remove("open");
+
+            menuButton.setAttribute(
+              "aria-expanded",
+              "false"
+            );
+
+          }
+        );
+
+      }
+    );
+
+
+    /*
+      Se clicchi fuori dal menu,
+      il menu si chiude.
+    */
+
+    document.addEventListener(
+      "click",
+      function (event) {
+
+        if (
+          !mobileMenu.contains(event.target) &&
+          !menuButton.contains(event.target)
+        ) {
+
+          mobileMenu.classList.remove("open");
+
+          menuButton.classList.remove("open");
+
+          menuButton.setAttribute(
+            "aria-expanded",
+            "false"
+          );
+
+        }
+
+      }
+    );
+
+  </script>
 
 </body>
 </html>
